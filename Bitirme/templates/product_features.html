@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Detayları</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .product-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Ürün Detayları</h1>
+        {% if productDetails %}
+        <div class="product-details">
+            <h2>{{ productDetails.name }}</h2>
+            <p><strong>Kategori:</strong> {{ productDetails.category }}</p>
+            <p><strong>Açıklama:</strong> {{ productDetails.description }}</p>
+            <h3>Fiyatlar:</h3>
+            <ul>
+                {% for site in productDetails.sites %}
+                <li>{{ site.name }}: {{ site.price }} TL</li>
+                {% endfor %}
+            </ul>
+            <a href="/" class="btn btn-primary">Anasayfaya Geri Dön</a>
+        </div>
+        {% else %}
+        <div class="product-details">
+            <p>Ürün detayları yüklenemedi.</p>
+            <a href="/" class="btn btn-primary">Anasayfaya Geri Dön</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
