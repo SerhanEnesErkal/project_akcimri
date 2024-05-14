@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, request, render_template
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS = CORS(app)
 
 # Örnek ürün veritabanı
 products = [
@@ -15,16 +17,6 @@ products = [
 @app.route('/')
 def index():
     return render_template('index.html')
-
-@app.route('/product_features')
-def product_features():
-    product_name = request.args.get('productName')
-    product = next((p for p in products if p['name'] == product_name), None)
-    if product:
-        return render_template('product_features.html', productDetails=product)
-    return render_template('product_features.html', productDetails=None)
-
-
 
 
 @app.route('/products', methods=['GET'])

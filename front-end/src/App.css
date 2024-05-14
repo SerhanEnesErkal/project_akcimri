@@ -1,0 +1,72 @@
+body {
+  overflow:hidden ;
+  width: 100%;
+  background-color: #1D1D1D;
+  margin: 0;
+  font-family: helvetica;
+}
+.header {
+  width: 100%;
+  font-family: 'Courier New', Courier, monospace; 
+  background-color: #1D1D1D;
+  color: white;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-evenly;
+}
+.header .left-header{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.header .left-header .md-36 {
+  font-size: 32px;
+}
+.header .search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+}
+.header .search input {
+  width: 30%;
+  height: 30px;
+  border: none;
+  padding: 0 10px;
+  background-color: #262626;
+  color: white;
+}
+
+.header .search button {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-color: #262626;
+  color: white;
+  cursor: pointer;
+}
+.container {
+  height: 100vh;
+  width: 100%;
+   background-color: #262626;
+
+}
+
+.content {
+  max-width: 1024px;
+  width: 100%;
+  padding: 0 4%;
+  padding-top: 250px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .content {
+    padding-top: 300px;
+    flex-direction: column;
+  }
+}
