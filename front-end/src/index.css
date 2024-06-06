@@ -1,0 +1,46 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+}
+.header {
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  background-color: #1d1d1d;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+.header .left-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.header .left-header .md-36 {
+  font-size: 32px;
+}
+.header .search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+}
+.header .search input {
+  width: 30%;
+  height: 30px;
+  border: none;
+  padding: 0 10px;
+  background-color: #262626;
+  color: white;
+}
+
+.header .search button {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-color: #262626;
+  color: white;
+  cursor: pointer;
+}

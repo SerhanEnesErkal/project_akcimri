@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
+import Phone from "./views/Phone.jsx";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/phone",
-    element: <div>About</div>,
+    element: <Phone />,
   },
   {
     path: "/tablet",
@@ -26,6 +27,20 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <div>
+      <div className="header">
+        <div className="left-header">
+          <h1>AKCİMRİ</h1>
+          <i class="fa-solid fa-turkish-lira-sign md-36"></i>
+        </div>
+        <div className="search">
+          <input type="text" />
+          <button type="button">
+            <i className="fa-solid fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
     <RouterProvider router={router} />
   </React.StrictMode>
 );

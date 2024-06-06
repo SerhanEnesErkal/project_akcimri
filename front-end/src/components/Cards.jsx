@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./Cards.css";
 
-function Cards({ icon, title, text, route }) {
+function Cards({ icon, image, title, text, route, type, price }) {
   const navigate = useNavigate();
   console.log(route);
   return (

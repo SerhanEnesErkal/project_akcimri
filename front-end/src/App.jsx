@@ -28,34 +28,20 @@ function App() {
   ];
   return (
     <>
-      <div>
-        <div className="header">
-          <div className="left-header">
-            <h1>AKCİMRİ</h1>
-            <i class="fa-solid fa-turkish-lira-sign md-36"></i>
-          </div>
-          <div className="search">
-            <input type="text" />
-            <button type="button">
-              <i className="fa-solid fa-search"></i>
-            </button>
-          </div>
-        </div>
-        <div className="container">
-          <div className="content">
-            {cards.map((card, index) => {
-              console.log(card);
-              return (
-                <Cards
-                  icon={card.icon}
-                  title={card.title}
-                  text={card.text}
-                  route={card.route}
-                  key={index}
-                />
-              );
-            })}
-          </div>
+      <div className="container">
+        <div className="content">
+          {cards.map((card, index) => {
+            console.log(card);
+            return (
+              <Cards
+                icon={card.icon}
+                title={card.title}
+                text={card.text}
+                route={card.route}
+                key={index}
+              />
+            );
+          })}
         </div>
       </div>
     </>
