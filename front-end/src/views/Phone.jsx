@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./Phone.css";
 import Product from "../components/Product";
 import axios from "axios";
@@ -13,26 +13,30 @@ const Phone = () => {
       .get("http://127.0.0.1:5000/clusters")
       .then((response) => {
         const clusters = response.data;
+        console.log(clusters); // Veriyi konsola yazdır
+
         const newCards = [];
 
-        response.data.map((item) => {
-          newCards.push({
-            title: item[0].title,
-            prices: item.map((i) => ({
-              [i.market]: i.price,
-            })),
-          });
-        });
         Object.keys(clusters).forEach((clusterKey) => {
-          clusters[clusterKey].forEach((item) => {
-            newCards.push({
-              image:
-                "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_135553926/fee_194_131_png/",
-              title: item.title,
-              prices: {
-                [item.market]: item.price,
-              },
-            });
+          const items = clusters[clusterKey];
+          items.forEach((item) => {
+            const existingCardIndex = newCards.findIndex(
+              (card) => card.title === item.title
+            );
+            if (existingCardIndex >= 0) {
+              // Eğer aynı başlıkla bir kart varsa, fiyatı güncelle
+              newCards[existingCardIndex].prices[item.market] = item.price;
+            } else {
+              // Yeni kart ekle
+              newCards.push({
+                image:
+                  "https://i02.appmifile.com/527_operator_tr/29/11/2023/5290fd679b857712e12a9b90057b86d1!500x500.png",
+                title: item.title,
+                prices: {
+                  [item.market]: item.price,
+                },
+              });
+            }
           });
         });
 
