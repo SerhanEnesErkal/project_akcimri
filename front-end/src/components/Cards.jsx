@@ -3,7 +3,6 @@ import "./Cards.css";
 
 function Cards({ icon, image, title, text, route, type, price }) {
   const navigate = useNavigate();
-  console.log(route);
   return (
     <div className="card" onClick={route ? () => navigate(route) : null}>
       <div className="icon">

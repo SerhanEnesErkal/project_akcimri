@@ -10,11 +10,19 @@ const Phone = () => {
     console.log("Fetching clusters...");
 
     axios
-      .get("http://127.0.0.1:5000/cluster")
+      .get("http://127.0.0.1:5000/clusters")
       .then((response) => {
         const clusters = response.data;
         const newCards = [];
 
+        response.data.map((item) => {
+          newCards.push({
+            title: item[0].title,
+            prices: item.map((i) => ({
+              [i.market]: i.price,
+            })),
+          });
+        });
         Object.keys(clusters).forEach((clusterKey) => {
           clusters[clusterKey].forEach((item) => {
             newCards.push({

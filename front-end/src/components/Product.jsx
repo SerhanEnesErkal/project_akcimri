@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Product.css";
 import n11 from "../assets/n11.png";
 import trendyol from "../assets/trendyol.png";

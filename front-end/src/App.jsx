@@ -1,11 +1,11 @@
+import { useEffect } from "react";
 import "./App.css";
-import axios from "axios";
 import Cards from "./components/Cards.jsx";
 
 function App() {
-  axios.get("http://127.0.0.1:80/").then((response) => {
-    console.log(response);
-  });
+  useEffect(() => {
+    console.log("Fetching");
+  }, []);
   let cards = [
     {
       icon: "fa-solid fa-mobile-screen-button",
@@ -31,7 +31,6 @@ function App() {
       <div className="container">
         <div className="content">
           {cards.map((card, index) => {
-            console.log(card);
             return (
               <Cards
                 icon={card.icon}

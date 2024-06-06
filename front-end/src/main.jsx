@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <>
     <div>
       <div className="header">
         <div className="left-header">
@@ -42,5 +42,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </div>
     </div>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </>
 );
