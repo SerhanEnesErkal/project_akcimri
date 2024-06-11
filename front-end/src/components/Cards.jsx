@@ -3,8 +3,14 @@ import "./Cards.css";
 
 function Cards({ icon, image, title, text, route, type, price }) {
   const navigate = useNavigate();
+  const handleClick = () => {
+    if (route) {
+      navigate(route, { state: { param: route } }); // title'ı param olarak gönderiyoruz
+    }
+  };
+
   return (
-    <div className="card" onClick={route ? () => navigate(route) : null}>
+    <div className="card" onClick={handleClick}>
       <div className="icon">
         <i className={`material-icons md-36 ${icon}`}></i>
       </div>
@@ -13,4 +19,5 @@ function Cards({ icon, image, title, text, route, type, price }) {
     </div>
   );
 }
+
 export default Cards;

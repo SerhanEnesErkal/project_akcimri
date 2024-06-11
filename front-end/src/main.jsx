@@ -4,6 +4,8 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import Phone from "./views/Phone.jsx";
+import Tablet from "./views/Tablet.jsx";
+import Laptop from "./views/Laptop.jsx";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -17,11 +19,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/tablet",
-    element: <div>Tablet</div>,
+    element: <Tablet />,
   },
   {
-    path: "/computer",
-    element: <div>Computer</div>,
+    path: "/laptop",
+    element: <Laptop />,
   },
 ]);
 

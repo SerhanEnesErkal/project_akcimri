@@ -23,7 +23,7 @@ function App() {
       icon: "fa-solid fa-laptop",
       title: "Bilgisayar",
       text: "En ucuz bilgisayar fırsatları",
-      route: "/computer",
+      route: "/laptop",
     },
   ];
   return (
