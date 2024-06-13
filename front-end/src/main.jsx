@@ -35,12 +35,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <h1>AKCİMRİ</h1>
           <i class="fa-solid fa-turkish-lira-sign md-36"></i>
         </div>
-        <div className="search">
-          <input type="text" />
-          <button type="button">
-            <i className="fa-solid fa-search"></i>
-          </button>
-        </div>
       </div>
     </div>
     <RouterProvider router={router} />

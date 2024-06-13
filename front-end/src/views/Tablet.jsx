@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Phone.css";
 import Product from "../components/Product";
 import axios from "axios";
+import Loading from "../components/Loading";
 
 const Phone = () => {
   const [cards, setCards] = useState([]);
@@ -13,7 +14,7 @@ const Phone = () => {
       .get("http://127.0.0.1:5000/tablet")
       .then((response) => {
         const clusters = response.data;
-        console.log(clusters); // Veriyi konsola yazdır
+        console.log(clusters);
 
         const newCards = [];
 
@@ -24,13 +25,11 @@ const Phone = () => {
               (card) => card.title === item.title
             );
             if (existingCardIndex >= 0) {
-              // Eğer aynı başlıkla bir kart varsa, fiyatı güncelle
               newCards[existingCardIndex].prices[item.market] = item.price;
             } else {
-              // Yeni kart ekle
               newCards.push({
                 image:
-                  "https://i02.appmifile.com/527_operator_tr/29/11/2023/5290fd679b857712e12a9b90057b86d1!500x500.png",
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/IPad_3.png/823px-IPad_3.png",
                 title: item.title,
                 prices: {
                   [item.market]: item.price,
@@ -45,11 +44,12 @@ const Phone = () => {
       .catch((error) => {
         console.error("There was an error fetching the clusters!", error);
       });
-  }, []); // Empty dependency array ensures this effect runs only once
+  }, []);
 
   return (
     <div className="container">
       <div className="contentProducts">
+        {cards.length === 0 && <Loading />}
         {cards.map((card, index) => (
           <Product product={card} key={index} type="product" />
         ))}

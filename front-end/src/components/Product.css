@@ -10,6 +10,16 @@
     background-color: #333333;
 
 }
+.productCard .productImage{
+    width: 200px;
+    margin-left: 100px;
+    margin-right: 200px;
+
+}
+.productCard .productImage img{
+    width: fit-content;
+}
+
 
 .productContainer{
     display: flex;

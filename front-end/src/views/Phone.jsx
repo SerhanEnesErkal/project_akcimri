@@ -11,10 +11,10 @@ const Phone = () => {
     console.log("Fetching clusters...");
 
     axios
-      .get("http://127.0.0.1:5000/phonse")
+      .get("http://127.0.0.1:5000/phone")
       .then((response) => {
         const clusters = response.data;
-        console.log(clusters); // Veriyi konsola yazdır
+        console.log(clusters);
 
         const newCards = [];
 
@@ -25,13 +25,11 @@ const Phone = () => {
               (card) => card.title === item.title
             );
             if (existingCardIndex >= 0) {
-              // Eğer aynı başlıkla bir kart varsa, fiyatı güncelle
               newCards[existingCardIndex].prices[item.market] = item.price;
             } else {
-              // Yeni kart ekle
               newCards.push({
                 image:
-                  "https://i02.appmifile.com/527_operator_tr/29/11/2023/5290fd679b857712e12a9b90057b86d1!500x500.png",
+                  "https://cdn.pixabay.com/photo/2017/05/01/20/55/smartphone-2276649_1280.png",
                 title: item.title,
                 prices: {
                   [item.market]: item.price,
@@ -46,7 +44,7 @@ const Phone = () => {
       .catch((error) => {
         console.error("There was an error fetching the clusters!", error);
       });
-  }, []); // Empty dependency array ensures this effect runs only once
+  }, []);
 
   return (
     <div className="container">
