@@ -1,1 +1,1 @@
-Fiyat karşılaştırması yapan bir e-ticaret platformu
+Farklı sitelerdeki aynı ürünlerin fiyat karşılaştırmasını yapan bir e-ticaret platformu
